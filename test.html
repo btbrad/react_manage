@@ -6,10 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            position: relative;
+        }
+        .box span{
+                display: block;
+                width: 0px;
+                height: 0px;
+                border: 20px solid red;
+                border-bottom: none;
+                border-left-color: transparent;
+                border-right-color: transparent;
+                position: absolute;
+                left: 50%;
+                bottom:-10px;
+        }
+    </style>
 </head>
 <body>
     <button>获取天气</button>
-
+    <div class="box">
+        <span></span>
+    </div>
     <script>
         $('button').on('click',function(){
             $.ajax(
@@ -24,6 +46,15 @@
                 }
             )
         });
+
+        function reverseString(str){
+            var arr = str.split('');
+            var newArr = arr.reverse();
+            return newArr.join('');
+        }
+
+        var test = reverseString('abc');
+        console.log(test);
     </script>
 </body>
 </html>

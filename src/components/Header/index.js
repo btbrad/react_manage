@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col,Button, Breadcrumb } from 'antd';
-import BreadcrumbItem from 'antd/lib/breadcrumb/BreadcrumbItem';
+import { Row, Col,Button} from 'antd';
 import Utils from '../../utils/utils';
 import axios from '../../axios';
 import './index.less'
@@ -40,9 +39,7 @@ export default class Header extends Component{
                 </Row>
                 <Row className="breadcrumb">
                     <Col span={4} className="breadcrumb-title">
-                        <Breadcrumb>
-                            <BreadcrumbItem>首页</BreadcrumbItem>
-                        </Breadcrumb>
+                        首页
                     </Col>
                     <Col span={20} className="weather">
                         <span className="date">{sysTime}</span>
