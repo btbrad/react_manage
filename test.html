@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+</head>
+<body>
+    <button>获取天气</button>
+
+    <script>
+        $('button').on('click',function(){
+            $.ajax(
+                {
+                    url:'http://api.map.baidu.com/telematics/v3/weather?location=shanghai&output=json&ak=3p49MVra6urFRGOT9s8UBWr2',
+                    type:'get',
+                    data:'',
+                    dataType:'jsonp',
+                    success:(res)=>{
+                        console.log(res);
+                    }
+                }
+            )
+        });
+    </script>
+</body>
+</html>

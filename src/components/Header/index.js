@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col,Button, Breadcrumb } from 'antd';
 import BreadcrumbItem from 'antd/lib/breadcrumb/BreadcrumbItem';
 import Utils from '../../utils/utils';
-import axios from 'axios';
+import axios from '../../axios';
 import './index.less'
 
 export default class Header extends Component{
@@ -16,19 +16,20 @@ export default class Header extends Component{
         
     }
     getWeather=()=>{
-        let weather = null;
-        axios.get('https://restapi.amap.com/v3/weather/weatherInfo?key=07f3fa59f7edf7190efca1351346bc7b&city=341202')
-            .then((res)=>{
-                console.log(res);
-                weather=res.data.lives[0].weather;
-            })
-            .catch((error)=>{
-                console.log(error);
-            });
-        this.setState({weather});   
+        let city = encodeURIComponent("上海");
+        axios.jsonp({
+            url:`http://api.map.baidu.com/telematics/v3/weather?location=${city}&output=json&ak=3p49MVra6urFRGOT9s8UBWr2`
+        })
+        .then((res)=>{
+                let weather=res.results[0].weather_data[0].weather;
+                let weatherPic=res.results[0].weather_data[0].dayPictureUrl;
+                this.setState({weather,weatherPic});   
+        },(error)=>{
+            console.log(error);
+        })
     }
     render(){
-        let{userName,sysTime,weather} = this.state;
+        let{userName,sysTime,weather,weatherPic} = this.state;
         return (
             <div className="header">
                 <Row className="header-top">
@@ -45,7 +46,7 @@ export default class Header extends Component{
                     </Col>
                     <Col span={20} className="weather">
                         <span className="date">{sysTime}</span>
-                        <span className="weather-detail">{weather}</span>
+                        <span className="weather-detail"><img src={weatherPic} alt="weatherPic"></img>{weather}</span>
                     </Col>
                 </Row>
             </div>
