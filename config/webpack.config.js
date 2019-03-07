@@ -129,8 +129,8 @@ module.exports = function(webpackEnv) {
           loader: require.resolve(preProcessor),
           options: {
             sourceMap: isEnvProduction && shouldUseSourceMap,
-            modifyVars: { // 修稿主题颜色
-              'primary-color': '#f9c700',
+            modifyVars: { // 修该主题颜色
+              'primary-color': '#00D8FF',
             },
             javascriptEnabled: true // 解决上文报错
           },
