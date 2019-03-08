@@ -20,6 +20,7 @@ import Gallery from './pages/ui/gallery';
 import Carousel from './pages/ui/carousel';
 import LoginForm from './pages/form/login';
 import RegisterForm from './pages/form/register';
+import BasicTable from './pages/table/basicTable';
 
 
 export default class IRouter extends Component{
@@ -42,6 +43,7 @@ export default class IRouter extends Component{
                                 <Route path="/admin/ui/carousel" component={Carousel}/>
                                 <Route path="/admin/form/login" component={LoginForm}/>
                                 <Route path="/admin/form/reg" component={RegisterForm}/>
+                                <Route path="/admin/table/basic" component={BasicTable}/>
                                 <Route component={NoMatch}/>
                             </Switch>
                         </Admin>

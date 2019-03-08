@@ -227,7 +227,7 @@ class Register extends Component{
 
                                 })(
                                     <Checkbox>
-                                        我已经阅读过<a>用户协议</a>
+                                        我已经阅读过<a href="#rule">用户协议</a>
                                     </Checkbox>
                                 )
                             }
