@@ -23,6 +23,7 @@ import RegisterForm from './pages/form/register';
 import BasicTable from './pages/table/basicTable';
 import AdvancedTable from './pages/table/advancedTable';
 import City from './pages/city/index';
+import FilterForm from './pages/order/index';
 
 
 export default class IRouter extends Component{
@@ -48,6 +49,7 @@ export default class IRouter extends Component{
                                 <Route path="/admin/table/basic" component={BasicTable}/>
                                 <Route path="/admin/table/advanced" component={AdvancedTable}/>
                                 <Route path="/admin/city" component={City}/>
+                                <Route path="/admin/order" component={FilterForm}/>
                                 <Route component={NoMatch}/>
                             </Switch>
                         </Admin>
