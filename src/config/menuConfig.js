@@ -65,7 +65,7 @@ export default [
             },
             {
                 title: '高级表格',
-                key: '/admin/table/high',
+                key: '/admin/table/advanced',
             }
         ]
     },
