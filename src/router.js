@@ -5,6 +5,7 @@ import App from './App';
 import Login from './pages/Login';
 import Admin from './admin'
 import Home from './pages/Home';
+import Common from './common';
 
 //404
 import NoMatch from './pages/nomatch';
@@ -24,6 +25,7 @@ import BasicTable from './pages/table/basicTable';
 import AdvancedTable from './pages/table/advancedTable';
 import City from './pages/city/index';
 import FilterForm from './pages/order/index';
+import Detail from './pages/order/detail';
 
 
 export default class IRouter extends Component{
@@ -54,8 +56,13 @@ export default class IRouter extends Component{
                             </Switch>
                         </Admin>
                     )}/>
-                    <Route path="/order/detail" component={Login}/>
-                    {/* <Redirect to="/login"/> */}
+                    <Route path="/common" render={
+                        ()=>(                            
+                            <Common>
+                                <Route path='/common/order/detail/:orderId' component={Detail} />>
+                            </Common>
+                        )
+                    }/>
                 </App>
             </HashRouter>
         )

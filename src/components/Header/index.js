@@ -28,24 +28,36 @@ export default class Header extends Component{
         })
     }
     render(){
-        let{userName,sysTime,weather,weatherPic} = this.state;
+        const {userName,sysTime,weather,weatherPic} = this.state;
+        const {menuType} = this.props;
         return (
             <div className="header">
                 <Row className="header-top">
-                    <Col span={24}>
+                    {
+                        menuType? (
+                            <Col span={6} className='logo'>
+                                <img src='/assets/logo-ant.svg' alt='' />
+                                <span>Bicycle MS </span>
+                            </Col>):''
+                    }
+                    <Col span={menuType?18:24}>
                         <span className="greeting">欢迎, {userName} </span>
                         <Button type="danger" size="small">退出</Button>
                     </Col>
                 </Row>
-                <Row className="breadcrumb">
-                    <Col span={4} className="breadcrumb-title">
-                        首页
-                    </Col>
-                    <Col span={20} className="weather">
-                        <span className="date">{sysTime}</span>
-                        <span className="weather-detail"><img src={weatherPic} alt="weatherPic"></img>{weather}</span>
-                    </Col>
-                </Row>
+                    {
+                        menuType?'':(
+                            <Row className="breadcrumb">
+                                <Col span={4} className="breadcrumb-title">
+                                    首页
+                                </Col>
+                                <Col span={20} className="weather">
+                                    <span className="date">{sysTime}</span>
+                                    <span className="weather-detail"><img src={weatherPic} alt="weatherPic"></img>{weather}</span>
+                                </Col>
+                            </Row>
+                        )
+                    }
             </div>
         )
     }
