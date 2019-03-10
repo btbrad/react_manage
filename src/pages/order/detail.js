@@ -39,7 +39,7 @@ export default class Order extends Component{
     
     renderMap = (result)=>{
         this.map = new window.BMap.Map('orderDeleteMap');
-        var point = new window.BMap.Point(116.404, 39.915);
+        // var point = new window.BMap.Point(116.404, 39.915);
         this.addMapControl();
         this.drawBikeRoute(result.position_list);
         this.drawServiceArea(result.area);
@@ -54,7 +54,7 @@ export default class Order extends Component{
 
     // 绘制用户的行驶路线
     drawBikeRoute = (positionList)=>{
-        let map = this.map;
+        // let map = this.map;
         let startPoint = '';
         let endPoint = '';
         if (positionList.length>0) {
