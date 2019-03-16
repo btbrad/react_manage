@@ -33,7 +33,7 @@ class FilterForm extends Component{
                     const INPUT = (
                         <FormItem label={label} key={field}>
                             {
-                                getFieldDecorator([field],{
+                                getFieldDecorator(field,{
                                     initialValue:initialValue,
                                 })(
                                     <Input type='text' placeholder={placeholder} style={{width:width}}/>
@@ -62,7 +62,7 @@ class FilterForm extends Component{
                     const begin_time = <FormItem label="订单时间" key='begin_time'>
                         {
                             getFieldDecorator('begin_time')(
-                                <DatePicker showTime={true} placeholder={placeholder} format="YYYY-MM-DD HH:mm:ss"/>
+                                <DatePicker showTime={true} format="YYYY-MM-DD HH:mm:ss" placeholder="请选择开始时间" />
                             )
                         }
                     </FormItem>;
@@ -70,7 +70,7 @@ class FilterForm extends Component{
                     const end_time = <FormItem label="~" colon={false} key='end_time'>
                         {
                             getFieldDecorator('end_time')(
-                                <DatePicker showTime={true} placeholder={placeholder} format="YYYY-MM-DD HH:mm:ss" />
+                                <DatePicker showTime={true} format="YYYY-MM-DD HH:mm:ss" placeholder="请选择结束时间"/>
                             )
                         }
                     </FormItem>;

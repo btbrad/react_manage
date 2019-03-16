@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 import {Card, Button, Table, Form, Modal, message } from 'antd';
 import BaseForm from '../../components/BaseForm';
 import axios from '../../axios/index';
-import Utils from '../../utils/utils';
 const FormItem = Form.Item;
-// const Option = Select.Option;
-
-
 
 export default class Order extends Component{
 
     state={
-        dataSource:[],
+        list:[],
         orderInfo:{},
         orderConfirmVisble:false
     }
@@ -19,6 +15,7 @@ export default class Order extends Component{
     params={
         page:1
     }
+
     formList = [
         {
             type:'SELECT',
@@ -50,24 +47,25 @@ export default class Order extends Component{
         this.requestList();
     }
     requestList = ()=>{
-        axios.ajax({
-            url:'/order/list',
-            data:{
-                params:{
-                    page:this.params.page
-                }
-            }
-        }).then((res)=>{
-            if(res.code === 0){
-                this.setState({
-                    dataSource:res.result.item_list,
-                    pagination:Utils.pagination(res,(current)=>{
-                        this.params.page = current;
-                        this.requestList();
-                    })
-                });
-            }
-        });
+        axios.requestList(this,'/order/list',this.params,true);
+        // axios.ajax({
+        //     url:'/order/list',
+        //     data:{
+        //         params:{
+        //             page:this.params.page
+        //         }
+        //     }
+        // }).then((res)=>{
+        //     if(res.code === 0){
+        //         this.setState({
+        //             dataSource:res.result.item_list,
+        //             pagination:Utils.pagination(res,(current)=>{
+        //                 this.params.page = current;
+        //                 this.requestList();
+        //             })
+        //         });
+        //     }
+        // });
     }
 
     // 订单结束确认
@@ -186,7 +184,7 @@ export default class Order extends Component{
                 dataIndex:'user_pay'
             }
         ];
-        const {dataSource} = this.state;
+        const {list} = this.state;
         const selectedRowKeys = this.state.selectedRowKeys;
         const formItemLayout = {
             labelCol:{span:5},
@@ -210,7 +208,7 @@ export default class Order extends Component{
                     <Table
                         bordered
                         columns={columns}
-                        dataSource={dataSource}
+                        dataSource={list}
                         rowKey={(record,index)=>index}
                         pagination={this.state.pagination}
                         rowSelection={rowSelection}
