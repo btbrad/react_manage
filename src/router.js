@@ -9,8 +9,6 @@ import Common from './common';
 
 //404
 import NoMatch from './pages/nomatch';
-
-
 import Buttons from './pages/ui/buttons';
 import Modals from './pages/ui/modals';
 import Loadings from './pages/ui/loadings';
@@ -33,7 +31,6 @@ import Pie from './pages/echarts/pie/index';
 import Line from './pages/echarts/line/index';
 import Rich from './pages/rich/index';
 import Permission from './pages/permission/index';
-
 
 export default class IRouter extends Component{
     render(){

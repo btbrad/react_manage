@@ -192,42 +192,42 @@ export default class AdvancedTable extends Component{
             {
                 title:'生日',
                 width:150,
-                dataIndex:'birthday',
+                dataIndex:'birthday1',
             },
             {
                 title:'生日',
                 width:150,
-                dataIndex:'birthday',
+                dataIndex:'birthday2',
             },
             {
                 title:'生日',
                 width:150,
-                dataIndex:'birthday',
+                dataIndex:'birthday3',
             },
             {
                 title:'生日',
                 width:150,
-                dataIndex:'birthday',
+                dataIndex:'birthday4',
             },
             {
                 title:'生日',
                 width:150,
-                dataIndex:'birthday',
+                dataIndex:'birthday11',
             },
             {
                 title:'生日',
                 width:150,
-                dataIndex:'birthday',
+                dataIndex:'birthday6',
             },
             {
                 title:'生日',
                 width:150,
-                dataIndex:'birthday',
+                dataIndex:'birthday7',
             },
             {
                 title:'生日',
                 width:150,
-                dataIndex:'birthday',
+                dataIndex:'birthday8',
             },
             {
                 title:'地址',

@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import {Card, Table, Button, Modal, Form, Input, Radio, Select, DatePicker, message, Tree, Transfer} from 'antd';
+import {Card, Table, Button, Modal, Form, Input, Select, Tree, Transfer} from 'antd';
 import axios from '../../axios/index';
 import Util from '../../utils/utils';
-import moment from 'moment';
 import menuConfig from '../../config/menuConfig';
 
 const FormItem = Form.Item;
-const RadioGroup = Radio.Group;
 const Option = Select.Option;
-const TextArea = Input.TextArea;
 const { TreeNode } = Tree;
 
 export default class PermissionUser extends Component {
@@ -454,11 +451,7 @@ class RoleAuthForm extends Component{
             labelCol:{ span:5 },
             wrapperCol:{ span:19 }
         }
-        const {mockData,targetKeys} = this.props;
-        console.log(mockData,targetKeys);
-        const { getFieldDecorator } = this.props.form;
         const detail_info = this.props.detailInfo;
-        const menuInfo = this.props.menuInfo;
         return(
             <Form layout="horizontal">
                 <FormItem label="角色名称" {...formItemLayout}>

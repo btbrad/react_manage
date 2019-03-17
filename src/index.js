@@ -5,9 +5,16 @@ import './index.css';
 // import Life from './pages/demo/Life';
 // import Admin from './admin'
 import Router from './router';
-import * as serviceWorker from './serviceWorker';
+import {Provider} from 'react-redux';
+import configureStore from './redux/store/configureStore';
 
-ReactDOM.render(<Router />, document.getElementById('root'));
+import * as serviceWorker from './serviceWorker';
+const store = configureStore();
+ReactDOM.render(
+    <Provider store={store}>
+        <Router />
+    </Provider>
+    , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
